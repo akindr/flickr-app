@@ -29,6 +29,5 @@ define(["angular"], function(angular){
             templateUrl: "views/map.html"
         });
     });
-
     return app;
 });
