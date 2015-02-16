@@ -4,7 +4,8 @@
 
 require(["angular", "angular-route", "bootstrap", "underscore",
     // Our scripts -- Add to this as we create new views and services
-    "scripts/module", "scripts/photos/photo-ctrl"],
+    "scripts/module", "scripts/photos/photo-ctrl", "scripts/map/map-ctrl", "scripts/stats/stats-ctrl"],
+
 
     // Bootstrap the angular app
     function(angular){

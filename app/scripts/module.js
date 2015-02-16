@@ -19,7 +19,7 @@ define(["angular"], function(angular){
         $routeProvider.when("/stats", {
             controller: "StatsCtrl",
             controllerAs: "ctrl",
-            templateUrl: "views/statistics.html"
+            templateUrl: "views/stats.html"
         });
 
         // Map
