@@ -3,7 +3,7 @@
  */
 
 define(["angular"], function(angular){
-    var app = angular.module("flickr.app", ["ngRoute"]);
+    var app = angular.module("flickr.app", ["ngRoute", "ngAnimate"]);
 
     // Configure the routing
     app.config(function($routeProvider){

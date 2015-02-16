@@ -55,14 +55,15 @@ module.exports = function (grunt) {
                 options: {
                     port: 8000,
                     hostname: '*',
-                    keepalive: false
+                    keepalive: false,
+                    base: "target"
                 }
             }
         },
 
         watch: {
             scripts: {
-                files: ['app/**/*.js', 'app/**/*.html'],
+                files: ['app/**/*.js', 'app/**/*.html', 'app/**/*.css'],
                 tasks: ['requirejs'],
                 options: {
                     spawn: false
