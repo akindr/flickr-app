@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Flickr Photo App</title>
+
+    <!-- Require js -->
+    <script type="text/javascript" data-main="scripts/app"  src="lib/requirejs/require.js"></script>
+
+    <!-- CSS -->
+    <link href="styles/styles.css" rel="stylesheet" />
+</head>
+<body ng-controller="MyCtrl" controller-as="ctrl">
+
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img src="images/flickr-icon.png" style="height: 50px; display: inline-block; margin-top: -15px" />
+                    <span style="vertical-align: text-top;">Flickr Viewer</span>
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Photos <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#">Config</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+
+
+</body>
+</html>
