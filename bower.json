@@ -1,0 +1,24 @@
+{
+  "name": "flickr-app",
+  "version": "0.1.0",
+  "description": "A simple AngularJS web app using the Flickr API",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "flickr",
+    "angularjs"
+  ],
+  "authors": [
+    "Austin Kindred"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
