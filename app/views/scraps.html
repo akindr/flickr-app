@@ -1,0 +1,10 @@
+<!-- Misc stuff -->
+        <!-- photos -->
+<dl ng-show="photo.showExif" class="exif-container">
+    <dt>Camera</dt>
+    <dd ng-bind="photo.exifData.camera"></dd>
+    <div ng-repeat="exif in photo.exifData.exif">
+        <dt ng-bind="exif.label"></dt>
+        <dd ng-bind="exif.raw._content"></dd>
+    </div>
+</dl>
