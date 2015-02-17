@@ -62,7 +62,7 @@ module.exports = function (grunt) {
 
         watch: {
             scripts: {
-                files: ['app/**/*.js', 'app/**/*.html'],
+                files: ['app/**/*.js', 'app/**/*.html', 'app/**/*.css'],
                 tasks: ['requirejs'],
                 options: {
                     spawn: false

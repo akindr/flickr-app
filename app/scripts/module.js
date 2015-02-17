@@ -3,6 +3,7 @@
  */
 
 define(["angular"], function(angular){
+    // TODO: Add additional modules here - ngAnimate, service, directive
     var app = angular.module("flickr.app", ["ngRoute"]);
 
     // Configure the routing

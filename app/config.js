@@ -20,7 +20,8 @@ require.config({
         jquery: "lib/jquery/dist/jquery",
         requirejs: "lib/requirejs/require",
         "angular-route": "lib/angular-route/angular-route",
-        angular: "lib/angular/angular"
+        angular: "lib/angular/angular",
+        "angular-animate": "lib/angular-animate/angular-animate"
     },
     packages: [
 
