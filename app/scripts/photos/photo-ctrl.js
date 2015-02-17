@@ -3,7 +3,7 @@ define(["scripts/module", "underscore"], function(app){
     /**
      * The controller for the photos page
      */
-    return app.controller("PhotoCtrl", function($scope, $http, $location){
+    return app.controller("PhotoCtrl", function($scope, $http){
         // -------------------------------------------------------------------
         // Private variables
         // -------------------------------------------------------------------
@@ -22,6 +22,7 @@ define(["scripts/module", "underscore"], function(app){
         // Private functions
         // -------------------------------------------------------------------
 
+        // TODO: Move to flickr service
         function loadPhotos(tags){
             $scope.flickr.photos = [];
 
@@ -39,11 +40,12 @@ define(["scripts/module", "underscore"], function(app){
             }).then(processPhotos)
         }
 
-        // Any post processing? Probably need to generate a URL to the photo
+        // TODO: Move to flickr service
         function processPhotos(resp){
             $scope.flickr.photos = resp.data.photos.photo;
 
             _.each($scope.flickr.photos, function(photo){
+                photo.showExif = false;
                 $http.get(URL, {
                     params: {
                         method: "flickr.photos.getSizes",
@@ -56,13 +58,35 @@ define(["scripts/module", "underscore"], function(app){
                     var thumbObjs = resp.data.sizes.size;
 
                     photo.thumbs = thumbObjs;
-                })
+                });
             });
+        }
+
+        // TODO: Move http to flickr service
+        function toggleExif(photo){
+            photo.showExif = !photo.showExif;
+
+            if(photo.showExif && !photo.exifData){
+                $http.get(URL, {
+                    params: {
+                        method: "flickr.photos.getExif",
+                        api_key: API_KEY,
+                        format: "json",
+                        nojsoncallback: 1,
+                        photo_id: photo.id
+                    }
+                }).then(function(resp){
+                    var exifData = resp.data.photo;
+
+                    photo.exifData = exifData;
+                });
+            }
         }
 
         // -------------------------------------------------------------------
         // Public functions
         // -------------------------------------------------------------------
         this.loadPhotos = loadPhotos;
+        this.toggleExif = toggleExif;
     });
 });

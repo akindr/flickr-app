@@ -2,6 +2,8 @@
 
 @import url("bootstrap-overrides.css");
 
+/*@import url("animations.css");*/
+
 .page-header {
     margin-top: -15px;
 }
@@ -23,9 +25,10 @@
     -moz-column-gap: 30px;
     -webkit-column-gap: 30px;
     column-gap: 30px;
+    position: relative;
 }
 
-@media only screen and (min-width: 400px) {
+@media only screen and (min-width: 300px) {
     .masonry {
         -moz-column-count: 2;
         -webkit-column-count: 2;
@@ -61,33 +64,10 @@
     display: inline-block;
     width: 100%;
     margin-bottom: 10px;
+    position: relative;
 }
 
-.item.ng-enter-stagger,
-.item.ng-leave-stagger,
-.item.ng-move-stagger {
-    /* 200ms will be applied between each sucessive enter operation */
-    -webkit-transition-delay:0.2s;
-    transition-delay:0.2s;
-}
-
-.item.ng-enter, .item.ng-move {
-    -webkit-transition:0.5s linear all;
-    -moz-transition:0.5s linear all;
-    -o-transition:0.5s linear all;
-    transition:0.5s linear all;
-    opacity:0;
-}
-
-.item.ng-enter.ng-enter-active,
-.item.ng-move.ng-move-active {
-    opacity:1;
-}
-
-.item.ng-leave {
-    -webkit-transition:0.5s linear all;
-    -moz-transition:0.5s linear all;
-    -o-transition:0.5s linear all;
-    transition:0.5s linear all;
-    opacity: 0;
+.exif-container {
+    height: 300px;
+    overflow: auto;
 }
