@@ -4,9 +4,12 @@
  * It sets up the ngRoutes for each page, and loads our (Angular) module
  * dependencies as well
  */
-define(["angular", "scripts/services/flickr-service"], function(angular){
+define(["angular", "scripts/services/flickr-service", "scripts/components/d3-chart/d3-chart"], function(angular){
     // Include all of our module dependencies here
-    var app = angular.module("flickr.app", ["ngRoute", "ngAnimate", "flickr.app.services"]);
+    var app = angular.module("flickr.app", ["ngRoute", "ngAnimate",
+        "flickr.app.services",
+        "flickr.app.components.d3Chart"
+    ]);
 
     // Configure the routing
     app.config(function($routeProvider){

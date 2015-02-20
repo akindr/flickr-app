@@ -58,10 +58,46 @@ define(["angular"], function(angular){
                });
            }
 
+           /**
+            * Get the interesting photos for the given date
+            * @param date - Date object
+            */
+           function getInterestingPhotos(date){
+               var dt = getFormattedDate(date);
+               var defr = $q.defer();
+
+               $http.get(URL, {
+                   params: {
+                       method: "flickr.interestingness.getList",
+                       api_key: API_KEY,
+                       format: "json",
+                       nojsoncallback: 1,
+                       date: dt,
+                       extras: "views",
+                       per_page: 10
+                   }
+               }).then(function(resp){
+                   defr.resolve(resp.data.photos.photo);
+               });
+
+               return defr.promise;
+           }
+
+           // Helper to format the date
+           function getFormattedDate(date) {
+               var year = date.getFullYear();
+               var month = (1 + date.getMonth()).toString();
+               month = month.length > 1 ? month : '0' + month;
+               var day = date.getDate().toString();
+               day = day.length > 1 ? day : '0' + day;
+               return year + "-" + month + "-" + day;
+           }
+
            // Public API
            return {
                getPhotos: getPhotos,
-               getExifData: getExifData
+               getExifData: getExifData,
+               getInterestingPhotos: getInterestingPhotos
            };
        }
    );

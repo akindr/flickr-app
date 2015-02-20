@@ -1,3 +1,18 @@
 <!-- Statistics! -->
 
-<h1>Flickr stats!</h1>
+<div class="page-header photos">
+    <h3>Flickr <small>Interesting photos by day</small></h3>
+    <form class="form-inline">
+        <!-- Search form with simple directives - ng-model and ng-click -->
+        <div class="form-group">
+            <label class="form-label">Previous </label>
+            <input ng-model="flickr.numDays" type="number" class="form-control" id="searchTerms" placeholder="Days" >
+            <span>Days</span>
+        </div>
+        <button ng-click="ctrl.getInterestingPhotos()" type="submit" class="btn btn-default">Search</button>
+    </form>
+</div>
+
+<div class="chart-container">
+    <div d3-chart chart-data="flickr.photoStats"></div>
+</div>
