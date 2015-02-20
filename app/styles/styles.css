@@ -2,7 +2,7 @@
 
 @import url("bootstrap-overrides.css");
 
-/*@import url("animations.css");*/
+@import url("animations.css");
 
 .page-header {
     margin-top: -15px;
