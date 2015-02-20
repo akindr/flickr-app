@@ -15,15 +15,8 @@
     <div class="item" ng-repeat="photo in flickr.photos">
         <div class="thumbnail">
             <!-- Bindings -->
-            <img ng-show="!photo.showExif" ng-src="{{photo.url_s}}" alt="{{photo.title}}">
-            <dl ng-show="photo.showExif" class="dl-horizontal exif-container">
-                <dt>Camera</dt>
-                <dd ng-bind="photo.exifData.camera"></dd>
-                <div ng-repeat="exif in photo.exifData.exif">
-                    <dt ng-bind="exif.label"></dt>
-                    <dd ng-bind="exif.raw._content"></dd>
-                </div>
-            </dl>
+            <img ng-src="{{photo.url_s}}" alt="{{photo.title}}">
+
             <div class="caption">
                 <h4 ng-bind="photo.title"></h4>
                 <p>
@@ -34,6 +27,15 @@
                         <dd ng-bind="photo.datetaken"></dd>
                         <dt>Location</dt>
                         <dd>{{photo.latitude}}, {{photo.longitude}}</dd>
+                    </dl>
+                    <!-- Exif data -->
+                    <dl ng-show="photo.showExif" class="exif-container">
+                        <dt>Camera</dt>
+                        <dd ng-bind="photo.exifData.camera"></dd>
+                        <div ng-repeat="exif in photo.exifData.exif">
+                            <dt ng-bind="exif.label"></dt>
+                            <dd ng-bind="exif.raw._content"></dd>
+                        </div>
                     </dl>
 
                     <p class="text-center">

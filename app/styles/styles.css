@@ -68,6 +68,7 @@
 }
 
 .exif-container {
-    height: 300px;
+    max-height: 300px;
+    height: inherit;
     overflow: auto;
 }
