@@ -1,18 +1,11 @@
+/**
+ * A controller for the photos page.
+ */
+define(["scripts/module"], function(module){
 
-define(["scripts/module", "underscore"], function(app){
-    /**
-     * The controller for the photos page
-     */
-    return app.controller("PhotoCtrl", function($scope, $http){
-        // -------------------------------------------------------------------
-        // Private variables
-        // -------------------------------------------------------------------
-        var API_KEY = "4072ae071b7042b063476db7b14dac38";
-        var URL = "https://api.flickr.com/services/rest/";
+    return module.controller("PhotoCtrl", function($scope, flickrService){
 
-        // -------------------------------------------------------------------
-        // Scope variables
-        // -------------------------------------------------------------------
+        // Model object
         $scope.flickr = {
             photos: [],
             searchTerm: "Nature"
@@ -22,71 +15,30 @@ define(["scripts/module", "underscore"], function(app){
         // Private functions
         // -------------------------------------------------------------------
 
-        // TODO: Move to flickr service
-        function loadPhotos(tags){
-            $scope.flickr.photos = [];
-
-            $http.get(URL, {
-                params: {
-                    method: "flickr.photos.search",
-                    api_key: API_KEY,
-                    tags: $scope.flickr.searchTerm,
-                    format: "json",
-                    per_page: 20,
-                    sort: "interestingness-desc",
-                    nojsoncallback: 1,
-                    privacy_filter: 1
-                }
-            }).then(processPhotos)
-        }
-
-        // TODO: Move to flickr service
-        function processPhotos(resp){
-            $scope.flickr.photos = resp.data.photos.photo;
-
-            _.each($scope.flickr.photos, function(photo){
-                photo.showExif = false;
-                $http.get(URL, {
-                    params: {
-                        method: "flickr.photos.getSizes",
-                        api_key: API_KEY,
-                        format: "json",
-                        nojsoncallback: 1,
-                        photo_id: photo.id
-                    }
-                }).then(function(resp){
-                    var thumbObjs = resp.data.sizes.size;
-
-                    photo.thumbs = thumbObjs;
-                });
+        /**
+         * Find photos for the given search term
+         */
+        function findPhotos(){
+            flickrService.getPhotos($scope.flickr.searchTerm).then(function(photos){
+                $scope.flickr.photos = photos;
             });
         }
 
-        // TODO: Move http to flickr service
+        /**
+         * Toggle the display of the EXIF data for the given photo. If it hasn't been loaded,
+         * we lazy-load the exif data
+         * @param photo
+         */
         function toggleExif(photo){
             photo.showExif = !photo.showExif;
 
             if(photo.showExif && !photo.exifData){
-                $http.get(URL, {
-                    params: {
-                        method: "flickr.photos.getExif",
-                        api_key: API_KEY,
-                        format: "json",
-                        nojsoncallback: 1,
-                        photo_id: photo.id
-                    }
-                }).then(function(resp){
-                    var exifData = resp.data.photo;
-
-                    photo.exifData = exifData;
-                });
+                flickrService.getExifData(photo);
             }
         }
 
-        // -------------------------------------------------------------------
-        // Public functions
-        // -------------------------------------------------------------------
-        this.loadPhotos = loadPhotos;
+        // Public API
+        this.findPhotos = findPhotos;
         this.toggleExif = toggleExif;
     });
 });
