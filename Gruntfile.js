@@ -43,7 +43,6 @@ module.exports = function (grunt) {
                     ],
                     logLevel: 0,
                     findNestedDependencies: true,
-                    fileExclusionRegExp: /^(r|build)\.js$|\.min\./,
                     inlineText: true,
                     optimizeCss: "default"
                 }

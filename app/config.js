@@ -21,7 +21,8 @@ require.config({
         requirejs: "lib/requirejs/require",
         "angular-route": "lib/angular-route/angular-route",
         angular: "lib/angular/angular",
-        "angular-animate": "lib/angular-animate/angular-animate"
+        "angular-animate": "lib/angular-animate/angular-animate",
+        d3: "lib/d3/d3"
     },
     packages: [
 
