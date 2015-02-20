@@ -1,10 +1,12 @@
 /**
- * Created by Austin on 2/16/2015.
+ * This file creates the main angular module for our app - flickr.app
+ *
+ * It sets up the ngRoutes for each page, and loads our (Angular) module
+ * dependencies as well
  */
-
-define(["angular"], function(angular){
-    // TODO: Import other modules - ngAnimate, service, directive
-    var app = angular.module("flickr.app", ["ngRoute"]);
+define(["angular", "scripts/services/flickr-service"], function(angular){
+    // Include all of our module dependencies here
+    var app = angular.module("flickr.app", ["ngRoute", "ngAnimate", "flickr.app.services"]);
 
     // Configure the routing
     app.config(function($routeProvider){
