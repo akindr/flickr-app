@@ -3,8 +3,7 @@
  */
 
 define(["angular"], function(angular){
-    // TODO: Add additional modules here - ngAnimate, service, directive
-    var app = angular.module("flickr.app", ["ngRoute"]);
+    var app = angular.module("flickr.app", ["ngRoute", "ngAnimate"]);
 
     // Configure the routing
     app.config(function($routeProvider){
@@ -30,5 +29,6 @@ define(["angular"], function(angular){
             templateUrl: "views/map.html"
         });
     });
+
     return app;
 });
