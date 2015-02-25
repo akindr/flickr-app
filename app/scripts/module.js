@@ -1,6 +1,4 @@
-/**
- * Created by Austin on 2/16/2015.
- */
+"use strict"
 
 define(["angular"], function(angular){
     var app = angular.module("flickr.app", ["ngRoute", "ngAnimate"]);
@@ -10,8 +8,6 @@ define(["angular"], function(angular){
 
         // Photos
         $routeProvider.when("/photos", {
-            controller: "PhotoCtrl",
-            controllerAs: "ctrl",
             templateUrl: "views/photos.html"
         });
 
