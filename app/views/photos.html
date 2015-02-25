@@ -1,39 +1,43 @@
 <!-- The view for the photos page -->
-<div class="page-header photos">
-    <h3>Flickr <small>photos by interesting-ness</small></h3>
+<!-- TODO: Tie me to a controller -->
+<div>
+    <div class="page-header photos">
+        <!-- TODO: Show the search term for awesome-ness -->
+        <h3>Flickr <small>photos by interesting-ness</small></h3>
 
-    <form class="form-inline">
-        <!-- Search form with simple directives - ng-model and ng-click -->
-        <div class="form-group">
-            <!-- TODO: Add binding to model -->
-            <input type="text" class="form-control" id="searchTerms" placeholder="Search Term" >
-        </div>
-        <!-- TODO: Implement search button -->
-        <button type="submit" class="btn btn-default">Search</button>
-    </form>
-</div>
+        <!-- Search form -->
+        <form class="form-inline">
+            <div class="form-group">
+                <!-- TODO: Add binding to model -->
+                <input type="text" class="form-control" id="searchTerms" placeholder="Search Term" >
+            </div>
+            <!-- TODO: Implement search button -->
+            <button type="submit" class="btn btn-default">Search</button>
+        </form>
+    </div>
 
-<!-- Photo display -->
-<div class="masonry">
-    <!-- TODO: Show one thumbnail for each photo -->
-    <div class="item">
-        <div class="thumbnail">
-            <!-- TODO: Show the image from the thumbnail -->
-            <img>
+    <!-- Photo display -->
+    <div class="masonry">
+        <!-- TODO: Show one thumbnail for each photo -->
+        <div class="item">
+            <div class="thumbnail">
+                <!-- TODO: Show the image from the thumbnail -->
+                <img>
 
-            <div class="caption">
-                <!-- TODO: Show the photo title -->
-                <h4></h4>
+                <div class="caption">
+                    <!-- TODO: Show the photo title -->
+                    <h4></h4>
 
-                <!-- TODO: Show the views, date, and location -->
-                <dl></dl>
+                    <!-- TODO: Show the views, date, and location -->
+                    <dl></dl>
 
-                <p class="text-center">
-                    <!-- TODO: Show full size photo -->
-                    <a class="btn btn-primary" role="button">Full-Size</a>&nbsp;
-                    <!-- TODO: Implement exif toggle -->
-                    <button class="btn btn-default">Toggle Exif</button>
-                </p>
+                    <p class="text-center">
+                        <!-- TODO: Show full size photo -->
+                        <a class="btn btn-primary" role="button">Full-Size</a>&nbsp;
+                        <!-- TODO: Implement exif toggle -->
+                        <button class="btn btn-default">Toggle Exif</button>
+                    </p>
+                </div>
             </div>
         </div>
     </div>
